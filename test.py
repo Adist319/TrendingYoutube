@@ -1,3 +1,4 @@
+import favicon as favicon
 import streamlit as st
 # To make things easier later, we're also importing numpy and pandas for
 # working with sample data.
@@ -5,6 +6,7 @@ import pandas as pd
 import datetime
 import os
 
+#st.beta_set_page_config(page_title='YouTube Trending Statistics', page_icon = favicon, layout = 'wide', initial_sidebar_state = 'auto')
 today = datetime.date.today()
 tomorrow = today + datetime.timedelta(days=1)
 start_date = st.date_input('Start date', today)
