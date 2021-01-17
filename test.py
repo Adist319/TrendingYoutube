@@ -1,7 +1,6 @@
 import streamlit as st
 # To make things easier later, we're also importing numpy and pandas for
 # working with sample data.
-import numpy as np
 import pandas as pd
 import datetime
 import os
@@ -32,14 +31,33 @@ dislikes = df1.dislikes
 comments = df1.comment_count
 dates = df1.Date_YYMMDD
 print(f'There are {nRow} rows and {nCol} columns')
-df1.head(5)
 # TODO: Create the select boxes to help filter out the videos
-descending_views = st.sidebar.selectbox('Input maximum view count:', )
+sort_by = st.selectbox("What metric do you want to sort by?", ('Number of views', 'Number of likes', 'Number of dislikes', 'Number of comments'))
+df = pd.DataFrame({
+    'Link': link,
+    'Trending Date': dates,
+    'Title': title,
+    'Views': views,
+    'Likes': likes,
+    'Dislikes': dislikes,
+    'Comment count': comments
+})
+
 # TODO: Dates start at 17.01.12 and ends at 18.31.05. We need to ensure that the user inputs dates within that range.
 # TODO: Once the table is set up properly, with the results filtered by start and end date, we can include a SelectBox
 #  to display certain metrics like the ones we defined above sorted in descending order.
 # TODO: filter them out based on the given start and end dates.
 # TODO if time permits: sort the filtered videos by the given metrics (views, likes, dislikes, comment_count).
 
-st.dataframe({"Link": link, "Trending Date": dates, "Title": title, "Views": views, "Likes": likes, "Dislikes": dislikes, "Comment count": comments})
-# Adrian sucks.
+df = pd.DataFrame({
+    'Link': link,
+    'Trending Date': dates,
+    'Title': title,
+    'Views': views,
+    'Likes': likes,
+    'Dislikes': dislikes,
+    'Comment count': comments
+})
+if sort_by == 'Number of views':
+    df.sort_values(by='Views', ascending=True)
+df
