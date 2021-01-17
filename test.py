@@ -10,15 +10,6 @@ import streamlit as st
 import janitor
 
 #st.beta_set_page_config(page_title='YouTube Trending Statistics', page_icon = favicon, layout = 'wide', initial_sidebar_state = 'auto')
-today = datetime.date.today()
-tomorrow = today + datetime.timedelta(days=1)
-start_date = st.date_input('Start date', today)
-end_date = st.date_input('End date', tomorrow)
-if start_date < end_date:
-    st.success(f'Start date (Minimum: January 12 2017): {start_date} \n\nEnd date (Maximum: May 31 2018): {end_date}')
-else:
-    st.error('Error: End date must fall after start date.')
-# st.beta_set_page_config(page_title='YouTube Trending Statistics', page_icon = favicon, layout = 'wide', initial_sidebar_state = 'auto')
 start_date = st.date_input('Date range (Minimum: January 12 2017, Maximum: May 31 2018): ',
                            value=datetime.date(2017, 1, 12), min_value=datetime.date(2017, 1, 12),
                            max_value=datetime.date(2018, 5, 31), key=4)
