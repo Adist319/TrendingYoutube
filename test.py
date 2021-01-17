@@ -42,3 +42,4 @@ descending_views = st.sidebar.selectbox('Input maximum view count:', )
 # TODO if time permits: sort the filtered videos by the given metrics (views, likes, dislikes, comment_count).
 
 st.dataframe({"Link": link, "Trending Date": dates, "Title": title, "Views": views, "Likes": likes, "Dislikes": dislikes, "Comment count": comments})
+# Adrian sucks.
